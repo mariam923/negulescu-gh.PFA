@@ -1,35 +1,83 @@
 {
   "pages": {
-    "/despre-noi/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/despre-noi/page.js"
+    "/_not-found/page": [
+      "static/chunks/webpack-168a2189169cb8cb.js",
+      "static/chunks/fd9d1056-b88f8a4cc02eef8b.js",
+      "static/chunks/117-1894e2fb8c68e1e2.js",
+      "static/chunks/main-app-ccbc1b6ab7419b84.js",
+      "static/chunks/app/_not-found/page-c8219ab21dbb5ed7.js"
     ],
     "/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/layout.css",
-      "static/chunks/app/layout.js"
+      "static/chunks/webpack-168a2189169cb8cb.js",
+      "static/chunks/fd9d1056-b88f8a4cc02eef8b.js",
+      "static/chunks/117-1894e2fb8c68e1e2.js",
+      "static/chunks/main-app-ccbc1b6ab7419b84.js",
+      "static/css/315d3553cebaf11b.css",
+      "static/chunks/app/layout-a6a9c062d80a5f1a.js"
     ],
     "/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
-    ],
-    "/servicii/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/servicii/page.js"
+      "static/chunks/webpack-168a2189169cb8cb.js",
+      "static/chunks/fd9d1056-b88f8a4cc02eef8b.js",
+      "static/chunks/117-1894e2fb8c68e1e2.js",
+      "static/chunks/main-app-ccbc1b6ab7419b84.js",
+      "static/chunks/972-edd2ee9795e590ec.js",
+      "static/chunks/878-0b7ba35e7d14770e.js",
+      "static/chunks/182-767d48c6e52ebec7.js",
+      "static/chunks/app/page-85daea0221f2a4fd.js"
     ],
     "/portofoliu/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/portofoliu/page.js"
+      "static/chunks/webpack-168a2189169cb8cb.js",
+      "static/chunks/fd9d1056-b88f8a4cc02eef8b.js",
+      "static/chunks/117-1894e2fb8c68e1e2.js",
+      "static/chunks/main-app-ccbc1b6ab7419b84.js",
+      "static/chunks/972-edd2ee9795e590ec.js",
+      "static/chunks/878-0b7ba35e7d14770e.js",
+      "static/chunks/182-767d48c6e52ebec7.js",
+      "static/chunks/app/portofoliu/page-c84f6e280ed80491.js"
+    ],
+    "/legal/page": [
+      "static/chunks/webpack-168a2189169cb8cb.js",
+      "static/chunks/fd9d1056-b88f8a4cc02eef8b.js",
+      "static/chunks/117-1894e2fb8c68e1e2.js",
+      "static/chunks/main-app-ccbc1b6ab7419b84.js",
+      "static/chunks/972-edd2ee9795e590ec.js",
+      "static/chunks/app/legal/page-ceedf2b1f122b67a.js"
+    ],
+    "/contact/page": [
+      "static/chunks/webpack-168a2189169cb8cb.js",
+      "static/chunks/fd9d1056-b88f8a4cc02eef8b.js",
+      "static/chunks/117-1894e2fb8c68e1e2.js",
+      "static/chunks/main-app-ccbc1b6ab7419b84.js",
+      "static/chunks/972-edd2ee9795e590ec.js",
+      "static/chunks/182-767d48c6e52ebec7.js",
+      "static/chunks/570-234eb45bf780d4d4.js",
+      "static/chunks/app/contact/page-85d10bff4b372266.js"
+    ],
+    "/despre-noi/page": [
+      "static/chunks/webpack-168a2189169cb8cb.js",
+      "static/chunks/fd9d1056-b88f8a4cc02eef8b.js",
+      "static/chunks/117-1894e2fb8c68e1e2.js",
+      "static/chunks/main-app-ccbc1b6ab7419b84.js",
+      "static/chunks/972-edd2ee9795e590ec.js",
+      "static/chunks/878-0b7ba35e7d14770e.js",
+      "static/chunks/app/despre-noi/page-908cd82ecc8e69a7.js"
+    ],
+    "/servicii/page": [
+      "static/chunks/webpack-168a2189169cb8cb.js",
+      "static/chunks/fd9d1056-b88f8a4cc02eef8b.js",
+      "static/chunks/117-1894e2fb8c68e1e2.js",
+      "static/chunks/main-app-ccbc1b6ab7419b84.js",
+      "static/chunks/972-edd2ee9795e590ec.js",
+      "static/chunks/878-0b7ba35e7d14770e.js",
+      "static/chunks/app/servicii/page-fe80373e3810dcce.js"
     ],
     "/preturi/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/preturi/page.js"
+      "static/chunks/webpack-168a2189169cb8cb.js",
+      "static/chunks/fd9d1056-b88f8a4cc02eef8b.js",
+      "static/chunks/117-1894e2fb8c68e1e2.js",
+      "static/chunks/main-app-ccbc1b6ab7419b84.js",
+      "static/chunks/972-edd2ee9795e590ec.js",
+      "static/chunks/app/preturi/page-d63bfe5674d44b58.js"
     ]
   }
 }

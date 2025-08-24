@@ -1,21 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
+  trailingSlash: true,
   images: {
-    domains: ['images.unsplash.com', 'via.placeholder.com'],
-    formats: ['image/webp', 'image/avif'],
+    unoptimized: true
   },
-  async generateBuildId() {
-    return 'negulescu-build-' + Date.now()
-  },
-  async redirects() {
-    return [
-      {
-        source: '/despre',
-        destination: '/despre-noi',
-        permanent: true,
-      },
-    ]
-  },
-}
+  distDir: 'build'
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

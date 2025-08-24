@@ -1,0 +1,44 @@
+# Robots.txt pour Negulescu gh.PFA Tâmplărie PVC și Aluminiu
+# https://negulescu.ro
+
+User-agent: *
+Allow: /
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /private/
+
+# Allow important pages
+Allow: /servicii
+Allow: /portofoliu
+Allow: /despre-noi
+Allow: /preturi
+Allow: /contact
+Allow: /legal
+
+# Sitemap location
+Sitemap: https://negulescu.ro/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Block common spam bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /

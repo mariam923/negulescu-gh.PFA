@@ -1,0 +1,40 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="luxuryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc;stop-opacity:0.8" />
+      <stop offset="30%" style="stop-color:#e2e8f0;stop-opacity:0.6" />
+      <stop offset="70%" style="stop-color:#cbd5e1;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#94a3b8;stop-opacity:0.2" />
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.3" />
+      <stop offset="50%" style="stop-color:#6366f1;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0.1" />
+    </linearGradient>
+    <filter id="blur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->>
+  <rect width="400" height="300" fill="url(#luxuryGradient)"/>
+  
+  <!-- Floating geometric shapes -->
+  <circle cx="80" cy="60" r="30" fill="url(#accentGradient)" filter="url(#blur)" opacity="0.6"/>
+  <circle cx="320" cy="80" r="25" fill="url(#accentGradient)" filter="url(#blur)" opacity="0.4"/>
+  <circle cx="150" cy="200" r="35" fill="url(#accentGradient)" filter="url(#blur)" opacity="0.5"/>
+  <circle cx="300" cy="220" r="20" fill="url(#accentGradient)" filter="url(#blur)" opacity="0.7"/>
+  
+  <!-- Elegant lines -->
+  <path d="M50 150 Q200 100 350 150" stroke="#3b82f6" stroke-width="2" fill="none" opacity="0.3"/>
+  <path d="M50 180 Q200 130 350 180" stroke="#6366f1" stroke-width="1.5" fill="none" opacity="0.2"/>
+  <path d="M50 120 Q200 70 350 120" stroke="#8b5cf6" stroke-width="1" fill="none" opacity="0.15"/>
+  
+  <!-- Subtle grid pattern -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e2e8f0" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
+  </defs>
+  <rect width="400" height="300" fill="url(#grid)"/>
+</svg>

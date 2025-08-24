@@ -1,7 +1,10 @@
 {
+  "/_not-found/page": "app/_not-found/page.js",
+  "/page": "app/page.js",
+  "/portofoliu/page": "app/portofoliu/page.js",
+  "/legal/page": "app/legal/page.js",
+  "/contact/page": "app/contact/page.js",
   "/despre-noi/page": "app/despre-noi/page.js",
   "/servicii/page": "app/servicii/page.js",
-  "/page": "app/page.js",
-  "/preturi/page": "app/preturi/page.js",
-  "/portofoliu/page": "app/portofoliu/page.js"
+  "/preturi/page": "app/preturi/page.js"
 }
