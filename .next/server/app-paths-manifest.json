@@ -1,0 +1,7 @@
+{
+  "/despre-noi/page": "app/despre-noi/page.js",
+  "/servicii/page": "app/servicii/page.js",
+  "/page": "app/page.js",
+  "/preturi/page": "app/preturi/page.js",
+  "/portofoliu/page": "app/portofoliu/page.js"
+}
