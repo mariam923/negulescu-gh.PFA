@@ -26,3 +26,10 @@ Thumbs.db
 # IDE settings
 .vscode/
 .idea/
+
+# Video compression tools (temporary)
+ffmpeg-portable/
+compress-videos.ps1
+quick-compress.ps1
+COMPRESSION_GUIDE.md
+public/videos/backup/
