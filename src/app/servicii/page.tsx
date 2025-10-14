@@ -1,4 +1,7 @@
-import { Metadata } from 'next';
+'use client'
+
+import dynamic from 'next/dynamic';
+import { useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle, Phone, MessageCircle, Star, Shield, Clock, Award } from 'lucide-react';
@@ -6,17 +9,14 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
+import { motion } from 'framer-motion';
+import HeaderPremium from '@/components/HeaderPremium';
+import FooterMinimal from '@/components/FooterMinimal';
 
-export const metadata: Metadata = {
-  title: 'Servicii - Negulescu gh.PFA Tâmplărie | Ferestre, Uși, Jaluzele PVC',
-  description: 'Servicii complete de tâmplărie Negulescu gh.PFA: ferestre PVC/aluminiu, uși, jaluzele, pergole. Montaj profesional, garanție extinsă, consultanță gratuită în București și Ilfov.',
-  keywords: 'servicii tâmplărie, ferestre PVC, uși aluminiu, jaluzele, pergole, montaj profesional, garanție',
-  openGraph: {
-    title: 'Servicii - Negulescu gh.PFA Tâmplărie | Ferestre, Uși, Jaluzele PVC',
-    description: 'Servicii complete de tâmplărie PVC și aluminiu cu montaj profesional și garanție extinsă.',
-    images: ['/images/luxury-service-bg.svg'],
-  },
-};
+// Lazy load CircularOrbit3D
+const CircularOrbit3D = dynamic(() => import('@/components/CircularOrbit3D'), {
+  ssr: false
+});
 
 const services = [
   {
@@ -38,7 +38,6 @@ const services = [
       'Durabilitate peste 50 de ani',
       'Design modern și elegant'
     ],
-    priceRange: 'de la 280 RON/mp',
     popular: true
   },
   {
@@ -60,7 +59,6 @@ const services = [
       'Rezistență la uzură',
       'Întreținere ușoară'
     ],
-    priceRange: 'de la 1.200 RON/bucată'
   },
   {
     id: 'jaluzele',
@@ -81,7 +79,6 @@ const services = [
       'Intimitate sporită',
       'Design personalizabil'
     ],
-    priceRange: 'de la 120 RON/mp'
   },
   {
     id: 'rolete',
@@ -102,7 +99,6 @@ const services = [
       'Protecție împotriva vremii',
       'Confort sporit'
     ],
-    priceRange: 'de la 350 RON/mp'
   },
   {
     id: 'pergole',
@@ -123,7 +119,6 @@ const services = [
       'Design modern și elegant',
       'Utilizare pe tot parcursul anului'
     ],
-    priceRange: 'de la 2.500 RON/mp'
   },
   {
     id: 'usi-pvc',
@@ -140,11 +135,10 @@ const services = [
     ],
     benefits: [
       'Izolație termică superioară',
-      'Preț accesibil',
+      'Calitate superioară',
       'Întreținere minimă',
       'Durabilitate ridicată'
     ],
-    priceRange: 'de la 800 RON/bucată'
   }
 ];
 
@@ -195,137 +189,179 @@ const whyChooseUs = [
 ];
 
 export default function ServicesPage() {
+  useEffect(() => {
+    document.title = 'Servicii - Negulescu Gh.PFA Tâmplărie | Ferestre, Uși, Jaluzele PVC';
+  }, []);
+
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gradient-to-b from-argus-dark via-argus-anthracite to-black">
+      <HeaderPremium />
+      
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-white py-20">
-        <div className="absolute inset-0 bg-black/20" />
+      <section className="relative bg-gradient-to-br from-argus-dark via-argus-anthracite to-black text-white py-32 overflow-hidden">
+        <CircularOrbit3D size={600} color="#5AC8FA" thickness={3} speed={25} />
+        
+        {/* Ambient orbs */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <motion.div
+            className="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-argus-ice-blue/10 rounded-full blur-[100px]"
+            animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+            transition={{ duration: 8, repeat: Infinity }}
+          />
+        </div>
+        
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <Badge className="mb-4 bg-white/20 text-white border-white/30">
-              Servicii Complete de Tâmplărie
+            <Badge className="mb-6 glass-dark border-argus-ice-blue/20">
+              <span className="text-argus-ice-blue">Servicii Complete de Tâmplărie</span>
             </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Serviciile <span className="text-yellow-400">Negulescu gh.PFA</span>
+            <h1 className="text-5xl md:text-7xl font-display font-bold mb-6 leading-tight">
+              Serviciile <span className="bg-gradient-to-r from-argus-ice-blue to-blue-400 bg-clip-text text-transparent">Negulescu Gh.PFA</span>
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-blue-100">
+            <p className="text-xl md:text-2xl mb-12 text-argus-gray-light/80 font-light">
               De la consultanță la montaj - soluții complete pentru casa dumneavoastră
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold">
-                <MessageCircle className="mr-2 h-5 w-5" />
-                Consultanță Gratuită
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-900">
-                <Phone className="mr-2 h-5 w-5" />
-                Sună Acum
-              </Button>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button size="lg" className="bg-argus-ice-blue hover:bg-argus-ice-blue/90 text-argus-dark font-semibold shadow-lg shadow-argus-ice-blue/30">
+                  <MessageCircle className="mr-2 h-5 w-5" />
+                  Consultanță Gratuită
+                </Button>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button size="lg" variant="outline" className="glass-dark-hover border-argus-ice-blue/30 text-white">
+                  <Phone className="mr-2 h-5 w-5" />
+                  Sună Acum
+                </Button>
+              </motion.div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-gradient-to-b from-black via-argus-anthracite/50 to-argus-dark relative overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-argus-ice-blue/10 rounded-full blur-3xl" />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Serviciile Noastre</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-5xl font-display font-bold mb-6 text-white"
+            >
+              Serviciile Noastre
+            </motion.h2>
+            <p className="text-xl text-argus-gray-light/80 max-w-3xl mx-auto font-light">
               Oferim o gamă completă de servicii de tâmplărie PVC și aluminiu, 
               de la ferestre și uși până la sisteme de protecție solară.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service) => (
-              <Card key={service.id} className={cn(
-                "group hover:shadow-xl transition-all duration-300 relative overflow-hidden",
-                service.popular && "ring-2 ring-yellow-500"
-              )}>
-                {service.popular && (
-                  <Badge className="absolute top-4 right-4 z-10 bg-yellow-500 text-black">
-                    Popular
-                  </Badge>
-                )}
-                <div className="relative h-48 overflow-hidden">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <CardHeader>
-                  <CardTitle className="text-xl">{service.title}</CardTitle>
-                  <CardDescription className="text-base">
-                    {service.description}
-                  </CardDescription>
-                  <div className="text-lg font-semibold text-blue-600">
-                    {service.priceRange}
+            {services.map((service, index) => (
+              <motion.div
+                key={service.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <Card className={cn(
+                  "group hover:shadow-xl transition-all duration-300 relative overflow-hidden glass-dark glass-dark-hover border-2",
+                  service.popular ? "border-argus-ice-blue/40" : "border-argus-ice-blue/10"
+                )}>
+                  {service.popular && (
+                    <Badge className="absolute top-4 right-4 z-10 bg-argus-ice-blue text-argus-dark">
+                      Popular
+                    </Badge>
+                  )}
+                  <div className="relative h-48 overflow-hidden bg-argus-anthracite">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300 opacity-60"
+                    />
                   </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    <div>
-                      <h4 className="font-semibold mb-2">Caracteristici:</h4>
-                      <ul className="space-y-1">
-                        {service.features.slice(0, 3).map((feature, index) => (
-                          <li key={index} className="flex items-start gap-2 text-sm">
-                            <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                            {feature}
-                          </li>
-                        ))}
-                      </ul>
+                  <CardHeader>
+                    <CardTitle className="text-xl text-white font-display">{service.title}</CardTitle>
+                    <CardDescription className="text-base text-argus-gray-light/70">
+                      {service.description}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      <div>
+                        <h4 className="font-semibold mb-2 text-white">Caracteristici:</h4>
+                        <ul className="space-y-1">
+                          {service.features.slice(0, 3).map((feature, idx) => (
+                            <li key={idx} className="flex items-start gap-2 text-sm text-argus-gray-light/70">
+                              <CheckCircle className="h-4 w-4 text-argus-ice-blue mt-0.5 flex-shrink-0" />
+                              {feature}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <Button className="w-full group bg-argus-ice-blue hover:bg-argus-ice-blue/90 text-argus-dark" asChild>
+                        <Link href={`/servicii/${service.id}`}>
+                          Detalii Complete
+                          <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        </Link>
+                      </Button>
                     </div>
-                    <Button className="w-full group" asChild>
-                      <Link href={`/servicii/${service.id}`}>
-                        Detalii Complete
-                        <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      </Link>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Process Section */}
-      <section className="py-20">
+      <section className="py-20 bg-argus-dark">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Cum Lucrăm</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 text-white">Cum Lucrăm</h2>
+            <p className="text-xl text-argus-gray-light/80 max-w-3xl mx-auto font-light">
               Procesul nostru simplu și transparent vă asigură rezultate de calitate în timp optim.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {processSteps.map((step, index) => (
-              <div key={index} className="text-center">
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="text-center"
+              >
                 <div className="relative mb-6">
-                  <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto">
+                  <div className="w-16 h-16 bg-argus-ice-blue text-argus-dark rounded-full flex items-center justify-center text-xl font-bold mx-auto shadow-lg shadow-argus-ice-blue/30">
                     {step.step}
                   </div>
                   {index < processSteps.length - 1 && (
-                    <div className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-gray-300 -translate-y-0.5" />
+                    <div className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-argus-ice-blue/20 -translate-y-0.5" />
                   )}
                 </div>
-                <h3 className="text-xl font-semibold mb-3">{step.title}</h3>
-                <p className="text-gray-600">{step.description}</p>
-              </div>
+                <h3 className="text-xl font-display font-semibold mb-3 text-white">{step.title}</h3>
+                <p className="text-argus-gray-light/70 font-light">{step.description}</p>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gradient-to-b from-black via-argus-anthracite/50 to-argus-dark">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">De Ce Să Ne Alegeți</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 text-white">De Ce Să Ne Alegeți</h2>
+            <p className="text-xl text-argus-gray-light/80 max-w-3xl mx-auto font-light">
               Suntem partenerii de încredere pentru toate nevoile dumneavoastră de tâmplărie.
             </p>
           </div>
@@ -334,13 +370,20 @@ export default function ServicesPage() {
             {whyChooseUs.map((item, index) => {
               const Icon = item.icon;
               return (
-                <div key={index} className="text-center">
-                  <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4">
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="text-center"
+                >
+                  <div className="w-16 h-16 bg-argus-ice-blue text-argus-dark rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-argus-ice-blue/30">
                     <Icon className="h-8 w-8" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
-                  <p className="text-gray-600">{item.description}</p>
-                </div>
+                  <h3 className="text-xl font-display font-semibold mb-3 text-white">{item.title}</h3>
+                  <p className="text-argus-gray-light/70 font-light">{item.description}</p>
+                </motion.div>
               );
             })}
           </div>
@@ -348,30 +391,43 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-blue-900 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+      <section className="py-20 bg-argus-dark relative overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <motion.div
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-argus-ice-blue/10 rounded-full blur-[120px]"
+            animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
+            transition={{ duration: 10, repeat: Infinity }}
+          />
+        </div>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <h2 className="text-3xl md:text-4xl font-display font-bold mb-6 text-white">
             Gata să Începem Proiectul Dumneavoastră?
           </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
+          <p className="text-xl mb-8 max-w-2xl mx-auto text-argus-gray-light/80 font-light">
             Contactați-ne astăzi pentru o consultanță gratuită și o ofertă personalizată.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold" asChild>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button size="lg" className="bg-argus-ice-blue hover:bg-argus-ice-blue/90 text-argus-dark font-semibold shadow-lg shadow-argus-ice-blue/30" asChild>
               <Link href="/contact">
-                <MessageCircle className="mr-2 h-5 w-5" />
-                Solicită Ofertă
-              </Link>
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-900" asChild>
-              <Link href="tel:+40721234567">
-                <Phone className="mr-2 h-5 w-5" />
-                0721 234 567
-              </Link>
-            </Button>
+                  <MessageCircle className="mr-2 h-5 w-5" />
+                  Solicită Ofertă
+                </Link>
+              </Button>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button size="lg" variant="outline" className="glass-dark-hover border-argus-ice-blue/30 text-white" asChild>
+              <Link href="tel:+40763564072">
+                  <Phone className="mr-2 h-5 w-5" />
+                  +40 763 564 072
+                </Link>
+              </Button>
+            </motion.div>
           </div>
         </div>
       </section>
+      
+      <FooterMinimal />
     </div>
   );
 }

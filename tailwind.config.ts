@@ -18,6 +18,11 @@ const config: Config = {
       },
     },
     extend: {
+      fontFamily: {
+        'sans': ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        'body': ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        'display': ['var(--font-montserrat)', 'system-ui', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -52,11 +57,43 @@ const config: Config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        'minimal': {
+          white: '#FFFFFF',
+          'off-white': '#F9FAFB',
+          'light-gray': '#F3F4F6',
+          'medium-gray': '#9CA3AF',
+          'dark-gray': '#4B5563',
+          black: '#000000',
+          'deep-black': '#1A1A1A',
+          'accent-blue': '#007BFF',
+          'accent-gold': '#C9A227',
+        },
+        'premium': {
+          'sky': '#00AEEF',
+          'sage': '#8AA399',
+          'charcoal': '#2C3E50',
+          'silver': '#BDC3C7',
+          'pearl': '#ECF0F1',
+        },
+        'argus': {
+          'ice-blue': '#5AC8FA',
+          'dark': '#0A0A0A',
+          'anthracite': '#1E1E1E',
+          'gray-light': '#E5E5E5',
+          'off-white': '#F5F5F5',
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        'minimal': '0.75rem',
+      },
+      spacing: {
+        '18': '4.5rem',
+        '88': '22rem',
+        '100': '25rem',
+        '128': '32rem',
       },
       keyframes: {
         "accordion-down": {

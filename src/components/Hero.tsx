@@ -1,132 +1,130 @@
 'use client'
 
-import { ArrowRight, Star, CheckCircle, Phone, MessageCircle } from 'lucide-react'
+import { ArrowRight, Star, CheckCircle, Phone, MessageCircle, Sparkles, Shield, Award } from 'lucide-react'
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 
+const whatsappNumber = '+40763564072'
+const whatsappMessage = 'Salut! Sunt interesat de serviciile de tâmplărie. Aș dori să aflu mai multe detalii.'
+
 export default function Hero() {
-  const whatsappNumber = "+40123456789"
-  const whatsappMessage = "Bună ziua! Vreau să aflu mai multe despre serviciile dumneavoastră pentru ferestre și uși."
+  const [isVisible, setIsVisible] = useState(false)
+  const [scrollY, setScrollY] = useState(0)
+  
+  useEffect(() => {
+    const timer = setTimeout(() => setIsVisible(true), 100)
+    
+    const handleScroll = () => {
+      setScrollY(window.scrollY)
+    }
+    
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      clearTimeout(timer)
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
   const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/[^\d]/g, '')}?text=${encodeURIComponent(whatsappMessage)}`
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
-      {/* Luxury Background with Floating Elements */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.1),transparent_50%)] opacity-60" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(147,197,253,0.15),transparent_50%)] opacity-40" />
-        <div className="absolute top-0 left-0 w-full h-full bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] opacity-30" />
-        
-        {/* Floating Luxury Images */}
-        <div className="absolute top-20 left-10 opacity-5 animate-float">
-          <Image src="/images/luxury-window.svg" alt="" width={200} height={150} className="transform rotate-12" />
-        </div>
-        <div className="absolute top-40 right-20 opacity-5 animate-float-delayed">
-          <Image src="/images/luxury-door.svg" alt="" width={120} height={160} className="transform -rotate-6" />
-        </div>
-        <div className="absolute bottom-32 left-1/4 opacity-4 animate-float-slow">
-          <Image src="/images/luxury-window.svg" alt="" width={150} height={112} className="transform rotate-6" />
-        </div>
-        
-        {/* Animated Particles */}
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/3 w-2 h-2 bg-blue-400 rounded-full opacity-30 animate-pulse"></div>
-          <div className="absolute top-1/2 right-1/4 w-1 h-1 bg-indigo-400 rounded-full opacity-40 animate-ping"></div>
-          <div className="absolute bottom-1/3 left-1/5 w-3 h-3 bg-blue-300 rounded-full opacity-20 animate-bounce"></div>
-        </div>
+      {/* Hero Background Image with Parallax */}
+      <div className="absolute inset-0" style={{ transform: `translateY(${scrollY * 0.5}px)` }}>
+        <Image
+          src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop"
+          alt="Modern home interior"
+          fill
+          className="object-cover opacity-20"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 via-slate-900/20 to-orange-900/30" />
+      </div>
+      
+      {/* Animated Background */}
+      <div className="absolute inset-0">
+        {/* Animated Gradient Orbs */}
+        <div className="absolute top-20 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob" />
+        <div className="absolute top-40 right-1/4 w-96 h-96 bg-gradient-to-r from-orange-500/20 to-pink-500/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000" />
+        <div className="absolute -bottom-8 left-1/3 w-96 h-96 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob" style={{animationDelay: '4s'}} />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 text-center py-20">
-        {/* Review Badge */}
-        <div className="inline-flex items-center space-x-3 bg-white/80 backdrop-blur-xl rounded-2xl px-8 py-4 mb-12 border border-slate-200/50 shadow-lg shadow-blue-500/10">
-          <div className="flex items-center space-x-1">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
-            ))}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="space-y-8">
+          {/* Animated Badge */}
+          <div className={`inline-flex items-center px-6 py-3 rounded-full bg-white/90 backdrop-blur-md border border-blue-200/50 text-slate-700 text-sm font-semibold shadow-lg transition-all duration-700 hover:shadow-xl hover:scale-105 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <Sparkles className="w-4 h-4 mr-2 text-blue-500 animate-pulse" />
+            Peste 15 ani de experiență în tâmplărie de calitate
           </div>
-          <span className="text-sm font-semibold text-slate-700">4.9/5 din 500+ recenzii</span>
-          <CheckCircle className="w-5 h-5 text-emerald-500" />
-        </div>
 
-        {/* Main Heading */}
-        <div className="mb-6">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-8 leading-[0.95] tracking-tight">
-            <span className="text-slate-900">Ferestre și Uși</span>
-            <span className="block bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 bg-clip-text text-transparent">Premium</span>
-            <span className="block text-slate-800 text-3xl md:text-4xl lg:text-5xl font-light mt-2">pentru Casa Ta</span>
+          {/* Animated Main Heading */}
+          <h1 className={`text-5xl md:text-7xl lg:text-8xl font-bold text-slate-900 leading-tight transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <span className="block bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent hover:scale-105 transition-transform duration-300 inline-block">
+              Creăm Spații
+            </span>
+            <span className="block bg-gradient-to-r from-blue-600 via-orange-500 to-blue-600 bg-clip-text text-transparent font-extrabold hover:scale-105 transition-transform duration-300 inline-block">
+              Extraordinare
+            </span>
           </h1>
-        </div>
 
-        {/* Subtitle */}
-        <p className="text-xl md:text-2xl text-slate-600 mb-12 max-w-4xl mx-auto leading-relaxed font-light">
-          Transformă-ți casa cu ferestre și uși de înaltă calitate.<br className="hidden md:block" /> 
-          <span className="font-medium text-slate-700">Montaj profesional, materiale premium și garanție extinsă.</span>
-        </p>
+          {/* Animated Subtitle */}
+          <p className={`text-xl md:text-2xl text-slate-700 max-w-4xl mx-auto leading-relaxed transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            Transformăm visurile tale în realitate prin <span className="text-blue-600 font-semibold hover:text-orange-500 transition-colors duration-300">tâmplărie premium</span>, 
+            <span className="text-blue-600 font-semibold hover:text-orange-500 transition-colors duration-300">design elegant</span> și 
+            <span className="text-blue-600 font-semibold hover:text-orange-500 transition-colors duration-300">atenție la detalii</span> de neegalat.
+          </p>
 
-        {/* Key Benefits */}
-        <div className="flex flex-wrap justify-center gap-6 mb-16">
-          <div className="flex items-center space-x-3 bg-white/90 backdrop-blur-xl rounded-2xl px-6 py-3 border border-slate-200/50 shadow-sm">
-            <CheckCircle className="w-5 h-5 text-emerald-500" />
-            <span className="text-sm font-semibold text-slate-700">Garanție 10 ani</span>
+          {/* Animated Features */}
+          <div className={`flex flex-wrap justify-center gap-6 pt-8 transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className="group flex items-center gap-3 bg-white/90 backdrop-blur-md rounded-full px-5 py-3 border border-blue-200/50 shadow-lg hover:shadow-xl hover:scale-105 hover:border-blue-400/50 transition-all duration-300">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <CheckCircle className="w-5 h-5 text-white" />
+              </div>
+              <span className="font-semibold text-slate-800 group-hover:text-blue-600 transition-colors duration-300">Consultanță Gratuită</span>
+            </div>
+            <div className="group flex items-center gap-3 bg-white/90 backdrop-blur-md rounded-full px-5 py-3 border border-orange-200/50 shadow-lg hover:shadow-xl hover:scale-105 hover:border-orange-400/50 transition-all duration-300">
+              <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-pink-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <Award className="w-5 h-5 text-white" />
+              </div>
+              <span className="font-semibold text-slate-800 group-hover:text-orange-600 transition-colors duration-300">Montaj Premium</span>
+            </div>
+            <div className="group flex items-center gap-3 bg-white/90 backdrop-blur-md rounded-full px-5 py-3 border border-green-200/50 shadow-lg hover:shadow-xl hover:scale-105 hover:border-green-400/50 transition-all duration-300">
+              <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <Shield className="w-5 h-5 text-white" />
+              </div>
+              <span className="font-semibold text-slate-800 group-hover:text-green-600 transition-colors duration-300">Garanție Extinsă</span>
+            </div>
           </div>
-          <div className="flex items-center space-x-3 bg-white/90 backdrop-blur-xl rounded-2xl px-6 py-3 border border-slate-200/50 shadow-sm">
-            <CheckCircle className="w-5 h-5 text-emerald-500" />
-            <span className="text-sm font-semibold text-slate-700">Montaj în 1-2 zile</span>
-          </div>
-          <div className="flex items-center space-x-3 bg-white/90 backdrop-blur-xl rounded-2xl px-6 py-3 border border-slate-200/50 shadow-sm">
-            <CheckCircle className="w-5 h-5 text-emerald-500" />
-            <span className="text-sm font-semibold text-slate-700">Consultanță gratuită</span>
-          </div>
-        </div>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative inline-flex items-center space-x-4 bg-gradient-to-r from-emerald-500 via-green-500 to-emerald-600 hover:from-emerald-600 hover:via-green-600 hover:to-emerald-700 text-white px-12 py-6 rounded-3xl font-bold text-xl transition-all duration-500 transform hover:scale-[1.05] hover:-translate-y-2 shadow-2xl shadow-emerald-500/30 hover:shadow-3xl hover:shadow-emerald-500/50 animate-glow overflow-hidden"
-            aria-label="Contactează pe WhatsApp pentru ofertă gratuită"
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-shimmer"></div>
-            <MessageCircle className="w-7 h-7 relative z-10" />
-            <span className="relative z-10">Ofertă Gratuită WhatsApp</span>
-            <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-all duration-300 relative z-10" />
-          </a>
-          
-          <a
-            href="tel:+40123456789"
-            className="group relative inline-flex items-center space-x-4 bg-white/95 hover:bg-white backdrop-blur-2xl text-slate-700 hover:text-slate-900 px-12 py-6 rounded-3xl font-bold text-xl transition-all duration-500 border-2 border-slate-200/60 hover:border-blue-300/60 shadow-xl hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] overflow-hidden"
-            aria-label="Sună acum pentru consultanță"
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-50/50 to-indigo-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <Phone className="w-7 h-7 relative z-10 group-hover:rotate-12 transition-transform duration-300" />
-            <span className="relative z-10">Sună Acum</span>
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-          </a>
-        </div>
-
-        {/* Trust Indicators */}
-        <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          <div className="text-center group">
-            <div className="text-4xl md:text-5xl font-black bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform">15+</div>
-            <div className="text-slate-600 font-medium text-lg">Ani de experiență</div>
+          {/* Animated CTA Buttons */}
+          <div className={`flex flex-col sm:flex-row gap-6 justify-center items-center pt-12 transition-all duration-1000 delay-800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <Button 
+              size="lg" 
+              className="group bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold px-10 py-6 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:-translate-y-1"
+              asChild
+            >
+              <Link href="/contact">
+                <MessageCircle className="mr-3 h-5 w-5 group-hover:animate-pulse" />
+                Descoperă Soluțiile Noastre
+                <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
+              </Link>
+            </Button>
+            
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="group border-2 border-slate-800 bg-white/90 backdrop-blur-md text-slate-800 hover:bg-slate-800 hover:text-white hover:border-slate-900 px-10 py-6 rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:-translate-y-1 hover:shadow-xl"
+              asChild
+            >
+              <Link href={`https://wa.me/${whatsappNumber.replace('+', '')}?text=${encodeURIComponent(whatsappMessage)}`} target="_blank">
+                <Phone className="mr-3 h-5 w-5 group-hover:animate-pulse" />
+                Contactează-ne Direct
+              </Link>
+            </Button>
           </div>
-          <div className="text-center group">
-            <div className="text-4xl md:text-5xl font-black bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform">5000+</div>
-            <div className="text-slate-600 font-medium text-lg">Proiecte finalizate</div>
-          </div>
-          <div className="text-center group">
-            <div className="text-4xl md:text-5xl font-black bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform">98%</div>
-            <div className="text-slate-600 font-medium text-lg">Clienți mulțumiți</div>
-          </div>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-slate-300/60 rounded-full flex justify-center bg-white/20 backdrop-blur-sm">
-          <div className="w-1 h-3 bg-slate-600 rounded-full mt-2 animate-pulse" />
         </div>
       </div>
     </section>

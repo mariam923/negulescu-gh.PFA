@@ -28,11 +28,6 @@ export function slugify(text: string): string {
     .trim()
 }
 
-export function formatPrice(price: number): string {
-  return new Intl.NumberFormat('ro-RO', {
-    style: 'currency',
-    currency: 'RON',
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  }).format(price)
+export function formatText(text: string): string {
+  return text.trim().replace(/\s+/g, ' ')
 }

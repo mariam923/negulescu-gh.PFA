@@ -1,19 +1,30 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Montserrat, Inter } from 'next/font/google'
 import './globals.css'
+import ChatBot from '../components/ChatBot'
 
-const inter = Inter({ subsets: ['latin'] })
+const montserrat = Montserrat({ 
+  subsets: ['latin'], 
+  weight: ['300', '400', '500', '600', '700', '800'], 
+  variable: '--font-montserrat',
+  display: 'swap'
+})
+const inter = Inter({ 
+  subsets: ['latin'], 
+  variable: '--font-inter',
+  display: 'swap'
+})
 
 export const metadata: Metadata = {
   title: {
-    default: 'Negulescu gh.PFA - Montaj Ferestre și Uși în România',
-    template: '%s | Negulescu gh.PFA'
+    default: 'Negulescu Gh.PFA - Montaj Ferestre și Uși în România',
+    template: '%s | Negulescu Gh.PFA'
   },
-  description: 'Negulescu gh.PFA este specializată în montajul profesional de ferestre și uși în România. Servicii de calitate superioară, materiale premium și garanție extinsă.',
-  keywords: ['ferestre', 'uși', 'montaj', 'România', 'Negulescu gh.PFA', 'PVC', 'aluminiu', 'lemn'],
-  authors: [{ name: 'Negulescu gh.PFA' }],
-  creator: 'Negulescu gh.PFA',
-  publisher: 'Negulescu gh.PFA',
+  description: 'Negulescu Gh.PFA este specializată în montajul profesional de ferestre și uși în România. Servicii de calitate superioară, materiale premium și garanție extinsă.',
+  keywords: ['ferestre', 'uși', 'montaj', 'România', 'Negulescu Gh.PFA', 'PVC', 'aluminiu', 'lemn'],
+  authors: [{ name: 'Negulescu Gh.PFA' }],
+  creator: 'Negulescu Gh.PFA',
+  publisher: 'Negulescu Gh.PFA',
   formatDetection: {
     email: false,
     address: false,
@@ -24,16 +35,16 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Negulescu gh.PFA - Montaj Ferestre și Uși în România',
+    title: 'Negulescu Gh.PFA - Montaj Ferestre și Uși în România',
     description: 'Servicii profesionale de montaj ferestre și uși. Calitate superioară și garanție extinsă.',
     url: 'https://negulescu.ro',
-    siteName: 'Negulescu gh.PFA',
+    siteName: 'Negulescu Gh.PFA',
     locale: 'ro_RO',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Negulescu gh.PFA - Montaj Ferestre și Uși',
+    title: 'Negulescu Gh.PFA - Montaj Ferestre și Uși',
     description: 'Servicii profesionale de montaj ferestre și uși în România.',
   },
   robots: {
@@ -63,25 +74,16 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              "name": "Negulescu gh.PFA",
+              "name": "Negulescu Gh.PFA",
               "description": "Companie specializată în montajul profesional de ferestre și uși în România",
               "url": "https://negulescu.ro",
-              "telephone": "+40-XXX-XXX-XXX",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Strada Exemplu 123",
-                "addressLocality": "București",
-                "addressRegion": "București",
-                "postalCode": "010101",
-                "addressCountry": "RO"
-              },
+              "telephone": "+40-763-564-072",
               "geo": {
                 "@type": "GeoCoordinates",
                 "latitude": 44.4268,
                 "longitude": 26.1025
               },
               "openingHours": "Mo-Fr 08:00-18:00, Sa 09:00-14:00",
-              "priceRange": "$$",
               "serviceArea": {
                 "@type": "Country",
                 "name": "România"
@@ -112,8 +114,9 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={inter.className}>
+      <body className={`${montserrat.variable} ${inter.variable} font-sans antialiased`}>
         {children}
+        <ChatBot />
       </body>
     </html>
   )

@@ -1,4 +1,4 @@
-# Robots.txt pour Negulescu gh.PFA Tâmplărie PVC și Aluminiu
+# Robots.txt pour Negulescu Gh.PFA Tâmplărie PVC și Aluminiu
 # https://negulescu.ro
 
 User-agent: *

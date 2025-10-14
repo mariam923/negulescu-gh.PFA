@@ -1,13 +1,13 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { Shield, FileText, Eye, Lock, Mail, Phone, MapPin } from 'lucide-react';
+import { Shield, FileText, Eye, Lock, Mail, Phone } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
-  title: 'Informații Legale | Politica de Confidențialitate | Negulescu gh.PFA',
-  description: 'Politica de confidențialitate, termeni și condiții, informații GDPR pentru serviciile de tâmplărie PVC și aluminiu Negulescu gh.PFA.',
+  title: 'Informații Legale | Politica de Confidențialitate | Negulescu Gh.PFA',
+  description: 'Politica de confidențialitate, termeni și condiții, informații GDPR pentru serviciile de tâmplărie PVC și aluminiu Negulescu Gh.PFA.',
   keywords: 'politica confidențialitate, termeni condiții, GDPR, protecția datelor, informații legale',
   robots: 'index, follow',
 };
@@ -52,7 +52,7 @@ export default function LegalPage() {
             </Badge>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Informații Legale
-              <span className="text-blue-400"> Negulescu gh.PFA</span>
+              <span className="text-blue-400"> Negulescu Gh.PFA</span>
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-gray-100">
               Respectăm pe deplin legislația română și europeană privind protecția datelor personale
@@ -105,16 +105,15 @@ export default function LegalPage() {
                 </CardHeader>
                 <CardContent className="prose max-w-none">
                   <p className="mb-4">
-                    Negulescu gh.PFA (&quot;noi&quot;, &quot;compania&quot;, &quot;Negulescu gh.PFA&quot;) respectă confidențialitatea datelor dumneavoastră personale și se angajează să le protejeze în conformitate cu Regulamentul General privind Protecția Datelor (GDPR) și legislația română aplicabilă.
+                    Negulescu Gh.PFA (&quot;noi&quot;, &quot;compania&quot;, &quot;Negulescu Gh.PFA&quot;) respectă confidențialitatea datelor dumneavoastră personale și se angajează să le protejeze în conformitate cu Regulamentul General privind Protecția Datelor (GDPR) și legislația română aplicabilă.
                   </p>
                   <div className="bg-blue-50 p-4 rounded-lg">
                     <h4 className="font-semibold mb-2">Date de contact ale operatorului:</h4>
                     <ul className="space-y-1 text-sm">
-                      <li><strong>Denumire:</strong> Negulescu gh.PFA</li>
+                      <li><strong>Denumire:</strong> Negulescu Gh.PFA</li>
                       <li><strong>CUI:</strong> RO12345678</li>
-                      <li><strong>Adresa:</strong> Str. Exemplu Nr. 123, Sector 1, București</li>
                       <li><strong>Email:</strong> contact@negulescu.ro</li>
-                      <li><strong>Telefon:</strong> +40 721 234 567</li>
+                      <li><strong>Telefon:</strong> +40 763 564 072</li>
                     </ul>
                   </div>
                 </CardContent>
@@ -130,9 +129,9 @@ export default function LegalPage() {
                       <h4 className="font-semibold mb-2">Date de identificare și contact:</h4>
                       <ul className="list-disc list-inside space-y-1 text-sm text-gray-600">
                         <li>Nume și prenume</li>
-                        <li>Adresa de email</li>
+                        <li>Email</li>
                         <li>Numărul de telefon</li>
-                        <li>Adresa poștală (pentru livrări și montaj)</li>
+                        <li>Zona de montaj</li>
                       </ul>
                     </div>
                     <div>
@@ -147,7 +146,7 @@ export default function LegalPage() {
                     <div>
                       <h4 className="font-semibold mb-2">Date tehnice:</h4>
                       <ul className="list-disc list-inside space-y-1 text-sm text-gray-600">
-                        <li>Adresa IP</li>
+                        <li>IP</li>
                         <li>Tipul browserului și versiunea</li>
                         <li>Sistemul de operare</li>
                         <li>Paginile vizitate și timpul petrecut</li>
@@ -347,7 +346,6 @@ export default function LegalPage() {
                   Dacă considerați că drepturile dumneavoastră au fost încălcate, puteți depune o plângere la Autoritatea Națională de Supraveghere a Prelucrării Datelor cu Caracter Personal (ANSPDCP).
                 </p>
                 <div className="space-y-2 text-sm">
-                  <p><strong>Adresa:</strong> B-dul G-ral. Gheorghe Magheru 28-30, Sector 1, București</p>
                   <p><strong>Telefon:</strong> +40 318 059 211</p>
                   <p><strong>Email:</strong> anspdcp@dataprotection.ro</p>
                 </div>
@@ -375,7 +373,7 @@ export default function LegalPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="mb-4">
-                    Prezentii termeni și condiții reglementează relația contractuală între Negulescu gh.PFA și clienții săi pentru serviciile de tâmplărie PVC și aluminiu.
+                    Prezentii termeni și condiții reglementează relația contractuală între Negulescu Gh.PFA și clienții săi pentru serviciile de tâmplărie PVC și aluminiu.
                   </p>
                   <div className="bg-blue-50 p-4 rounded-lg">
                     <h4 className="font-semibold mb-2">Serviciile includ:</h4>
@@ -422,36 +420,6 @@ export default function LegalPage() {
                       <div>
                         <p className="font-medium">Contractul</p>
                         <p className="text-sm text-gray-600">Semnarea contractului și plata avansului</p>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-xl">3. Prețuri și Plăți</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div>
-                        <h4 className="font-semibold mb-2">Modalități de plată acceptate:</h4>
-                        <ul className="list-disc list-inside space-y-1 text-sm text-gray-600">
-                          <li>Transfer bancar</li>
-                          <li>Numerar la livrare</li>
-                          <li>Card bancar (POS)</li>
-                          <li>Rate fără dobândă (parteneri)</li>
-                        </ul>
-                      </div>
-                      <div>
-                        <h4 className="font-semibold mb-2">Structura plăților:</h4>
-                        <ul className="list-disc list-inside space-y-1 text-sm text-gray-600">
-                          <li>Avans: 30-50% la comandă</li>
-                          <li>Restul: la finalizarea montajului</li>
-                          <li>Factura cu TVA inclus</li>
-                          <li>Garanție bancară disponibilă</li>
-                        </ul>
                       </div>
                     </div>
                   </div>
@@ -593,25 +561,13 @@ export default function LegalPage() {
                 <CardContent>
                   <p className="text-sm mb-3">Luni - Vineri: 9:00 - 17:00</p>
                   <Button variant="outline" className="border-white text-white hover:bg-white hover:text-blue-900" asChild>
-                    <Link href="tel:+40721234567">
-                      0721 234 567
+                    <Link href="tel:+40763564072">
+                      +40 763 564 072
                     </Link>
                   </Button>
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/10 border-white/20 text-white">
-                <CardHeader>
-                  <MapPin className="h-8 w-8 mx-auto mb-2" />
-                  <CardTitle>Adresa</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm mb-3">Str. Exemplu Nr. 123<br />Sector 1, București</p>
-                  <Button variant="outline" className="border-white text-white hover:bg-white hover:text-blue-900">
-                    Vezi pe Hartă
-                  </Button>
-                </CardContent>
-              </Card>
             </div>
           </div>
         </div>

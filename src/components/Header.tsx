@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { Menu, X, Phone, MessageCircle } from 'lucide-react'
+import { Menu, X, Phone, MessageCircle, Sparkles } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const navigation = [
@@ -10,7 +10,6 @@ const navigation = [
   { name: 'Servicii', href: '/servicii' },
   { name: 'Portofoliu', href: '/portofoliu' },
   { name: 'Despre Noi', href: '/despre-noi' },
-  { name: 'Prețuri', href: '/preturi' },
   { name: 'Contact', href: '/contact' },
 ]
 
@@ -26,135 +25,131 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const whatsappNumber = "+40123456789" // Replace with actual WhatsApp number
+  const whatsappNumber = "+40763564072"
   const whatsappMessage = "Bună ziua! Sunt interessat de serviciile dumneavoastră pentru ferestre și uși."
   const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/[^\d]/g, '')}?text=${encodeURIComponent(whatsappMessage)}`
 
   return (
     <header 
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out",
         isScrolled 
-          ? "bg-white/90 backdrop-blur-2xl shadow-xl shadow-slate-200/20 border-b border-slate-200/50" 
-          : "bg-transparent"
+          ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-slate-200" 
+          : "bg-white/90 backdrop-blur-md"
       )}
     >
+      {/* Clean border */}
+      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
+      
       <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-18 lg:h-24">
-          {/* Logo */}
+        <div className="flex items-center justify-between h-20 lg:h-28">
+          {/* Animated Logo */}
           <Link href="/" className="flex items-center space-x-3 group">
-            <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg shadow-blue-500/25">
-              <span className="text-white font-black text-2xl">N</span>
+            <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-blue-500/50">
+              <span className="text-white font-bold text-2xl group-hover:animate-pulse">N</span>
             </div>
-            <span className={cn(
-              "text-3xl font-black transition-all duration-300 tracking-tight",
-              isScrolled ? "text-slate-900" : "text-slate-900 drop-shadow-lg"
-            )}>
-              Negulescu gh.PFA
+            <span className="text-2xl lg:text-3xl font-bold text-slate-900 tracking-tight group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-orange-500 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+              Negulescu Gh.PFA
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-10">
-            {navigation.map((item) => (
+          {/* Animated Desktop Navigation */}
+          <nav className="hidden lg:flex items-center space-x-8">
+            {navigation.map((item, index) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className={cn(
-                  "relative text-base font-semibold transition-all duration-300 hover:scale-105 group drop-shadow-lg",
-                  isScrolled ? "text-slate-700 hover:text-blue-600" : "text-slate-900 hover:text-blue-600"
-                )}
+                className="text-slate-700 hover:text-blue-600 font-semibold transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 relative group"
+                style={{animationDelay: `${index * 0.1}s`}}
               >
                 {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-indigo-600 group-hover:w-full transition-all duration-300" />
+                <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-blue-600 to-orange-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
               </Link>
             ))}
           </nav>
 
-          {/* CTA Buttons */}
+          {/* Animated CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-4">
             <a
-              href="tel:+40123456789"
-              className={cn(
-                "flex items-center space-x-3 px-6 py-3 rounded-2xl transition-all duration-300 font-semibold hover:scale-105",
-                isScrolled 
-                  ? "text-slate-700 hover:bg-slate-100 border border-slate-200" 
-                  : "text-slate-900 hover:bg-white/10 border border-slate-300 drop-shadow-lg"
-              )}
+              href="https://wa.me/40763564072"
+              className="flex items-center space-x-2 px-4 py-2 text-slate-700 hover:text-blue-600 transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 group"
               aria-label="Sună acum"
             >
-              <Phone className="w-5 h-5" />
-              <span>Sună Acum</span>
+              <Phone className="w-5 h-5 group-hover:animate-bounce" />
+              <span className="font-semibold">Sună Acum</span>
             </a>
             
             <a
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-3 bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white px-6 py-3 rounded-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-0.5 shadow-lg shadow-emerald-500/25 hover:shadow-xl hover:shadow-emerald-500/40 font-semibold"
+              className="flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-5 py-2.5 rounded-xl transition-all duration-300 font-semibold hover:scale-105 hover:-translate-y-0.5 hover:shadow-xl group"
               aria-label="Contactează pe WhatsApp"
             >
-              <MessageCircle className="w-5 h-5" />
+              <MessageCircle className="w-5 h-5 group-hover:animate-pulse" />
               <span>WhatsApp</span>
             </a>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Animated Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={cn(
-              "lg:hidden p-3 rounded-2xl transition-all duration-300 hover:scale-105",
-              isScrolled 
-                ? "text-slate-700 hover:bg-slate-100 border border-slate-200" 
-                : "text-slate-900 hover:bg-white/10 border border-slate-300 drop-shadow-lg"
-            )}
+            className="lg:hidden p-2 rounded-xl text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition-all duration-300 hover:scale-110 group"
             aria-label="Deschide meniul"
           >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isOpen ? 
+              <X className="w-6 h-6 rotate-0 group-hover:rotate-90 transition-transform duration-300" /> : 
+              <Menu className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" />
+            }
           </button>
         </div>
 
-        {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="lg:hidden bg-white/95 backdrop-blur-2xl border-t border-slate-200/50 shadow-2xl shadow-slate-200/20">
-            <nav className="py-6">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="block px-6 py-4 text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition-all duration-300 font-semibold text-lg border-l-4 border-transparent hover:border-blue-500"
-                  onClick={() => setIsOpen(false)}
+        {/* Animated Mobile Navigation */}
+        <div className={`lg:hidden bg-white border-t border-gray-200 overflow-hidden transition-all duration-300 ease-out ${
+          isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        }`}>
+          <nav className="py-4">
+            {navigation.map((item, index) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={`block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-all duration-300 font-medium hover:translate-x-2 transform ${
+                  isOpen ? 'translate-x-0 opacity-100' : '-translate-x-4 opacity-0'
+                }`}
+                style={{transitionDelay: isOpen ? `${index * 0.1}s` : '0s'}}
+                onClick={() => setIsOpen(false)}
+              >
+                {item.name}
+              </Link>
+            ))}
+            
+            <div className={`px-6 py-4 border-t border-gray-200 mt-4 transition-all duration-500 delay-300 ${
+              isOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+            }`}>
+              <div className="flex flex-col space-y-3">
+                <a
+                  href="https://wa.me/40763564072"
+                  className="flex items-center space-x-2 text-gray-700 hover:text-gray-900 transition-all duration-300 font-medium group hover:translate-x-1"
+                  aria-label="Sună acum"
                 >
-                  {item.name}
-                </Link>
-              ))}
-              
-              <div className="px-6 py-4 border-t border-slate-200/50 mt-4">
-                <div className="flex flex-col space-y-4">
-                  <a
-                    href="tel:+40123456789"
-                    className="flex items-center space-x-3 text-slate-700 hover:text-blue-600 transition-all duration-300 font-semibold p-3 rounded-2xl hover:bg-slate-100"
-                    aria-label="Sună acum"
-                  >
-                    <Phone className="w-5 h-5" />
-                    <span>Sună Acum</span>
-                  </a>
-                  
-                  <a
-                    href={whatsappUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center space-x-3 bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white px-6 py-4 rounded-2xl transition-all duration-300 w-fit font-semibold shadow-lg shadow-emerald-500/25"
-                    aria-label="Contactează pe WhatsApp"
-                  >
-                    <MessageCircle className="w-5 h-5" />
-                    <span>WhatsApp</span>
-                  </a>
-                </div>
+                  <Phone className="w-4 h-4 group-hover:animate-bounce" />
+                  <span>Sună Acum</span>
+                </a>
+                
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-2 bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 rounded-lg transition-all duration-300 font-medium w-fit hover:scale-105 hover:shadow-lg group"
+                  aria-label="Contactează pe WhatsApp"
+                >
+                  <MessageCircle className="w-4 h-4 group-hover:animate-pulse" />
+                  <span>WhatsApp</span>
+                </a>
               </div>
-            </nav>
-          </div>
-        )}
+            </div>
+          </nav>
+        </div>
       </div>
     </header>
   )

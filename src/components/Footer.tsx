@@ -1,7 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import { Phone, Mail, MapPin, Clock, MessageCircle, Facebook, Instagram, Linkedin } from 'lucide-react'
+import Image from 'next/image'
+import { Phone, Mail, Clock, MessageCircle, Facebook, Instagram, Linkedin, Send, Award, Shield, Star } from 'lucide-react'
 
 const footerLinks = {
   servicii: [
@@ -14,7 +15,6 @@ const footerLinks = {
   companie: [
     { name: 'Despre Noi', href: '/despre-noi' },
     { name: 'Portofoliu', href: '/portofoliu' },
-    { name: 'Prețuri', href: '/preturi' },
     { name: 'Contact', href: '/contact' },
     { name: 'Cariere', href: '/cariere' },
   ],
@@ -53,140 +53,152 @@ export default function Footer() {
   const whatsappUrl = "https://wa.me/40123456789?text=Bună%20ziua!%20Vreau%20să%20aflu%20mai%20multe%20despre%20serviciile%20dumneavoastră."
 
   return (
-    <footer className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-        }} />
+    <footer className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white overflow-hidden">
+      {/* 3D Background Effects */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-full blur-3xl animate-blob" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-orange-500/10 to-pink-500/10 rounded-full blur-3xl animate-blob animation-delay-2000" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-full blur-2xl animate-blob" style={{animationDelay: '4s'}} />
       </div>
       
-      {/* Main Footer Content */}
-      <div className="container mx-auto px-6 py-20 relative">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Company Info */}
-          <div className="lg:col-span-1">
-            <div className="flex items-center space-x-3 mb-8">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-500/25">
-                <span className="text-white font-bold text-xl">N</span>
+      {/* Animated Main Footer Content */}
+      <div className="container mx-auto px-6 py-20 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
+          {/* Animated Company Info */}
+          <div className="lg:col-span-2">
+            <div className="flex items-center space-x-4 mb-8 group">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-xl group-hover:shadow-2xl group-hover:shadow-blue-500/50 transform-gpu perspective-1000" style={{transformStyle: 'preserve-3d'}}>
+                <span className="text-white font-bold text-2xl group-hover:animate-pulse">N</span>
               </div>
-              <span className="text-3xl font-bold bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">Negulescu gh.PFA</span>
+              <div>
+                <h3 className="text-3xl font-bold text-white group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-orange-400 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">Negulescu Gh.PFA</h3>
+                <p className="text-blue-200 group-hover:text-orange-300 transition-colors duration-300 font-medium">Ferestre & Uși Premium</p>
+              </div>
             </div>
             
-            <p className="text-slate-300 mb-8 leading-relaxed text-lg">
-              Specializați în montajul profesional de ferestre și uși în România. 
-              Calitate superioară, materiale premium și garanție extinsă.
+            <p className="text-slate-300 text-lg leading-relaxed mb-8 max-w-lg hover:text-white transition-colors duration-300">
+              Specializați în montajul profesional de ferestre și uși în România.
+              <br />
+              <span className="text-blue-300 font-semibold">Calitate superioară</span>, <span className="text-orange-300 font-semibold">materiale premium</span> și <span className="text-green-300 font-semibold">garanție extinsă</span>.
             </p>
 
-            {/* Contact Info */}
-            <div className="space-y-5">
-              <div className="flex items-center space-x-4 group">
-                <div className="w-10 h-10 bg-blue-500/20 rounded-xl flex items-center justify-center group-hover:bg-blue-500/30 transition-all duration-300">
-                  <Phone className="w-5 h-5 text-blue-400 flex-shrink-0" />
+            {/* Animated Contact Info */}
+            <div className="space-y-4">
+              <div className="flex items-center space-x-3 group hover:translate-x-2 transition-all duration-300">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-600/20 to-cyan-600/20 backdrop-blur-sm border border-blue-400/30 rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 group-hover:bg-gradient-to-br group-hover:from-blue-600 group-hover:to-cyan-600 transform-gpu" style={{transformStyle: 'preserve-3d'}}>
+                  <Phone className="w-6 h-6 text-blue-300 group-hover:text-white group-hover:animate-bounce transition-all duration-300" />
                 </div>
-                <a href="tel:+40123456789" className="text-slate-300 hover:text-white transition-all duration-300 font-medium">
-                  +40 123 456 789
+                <a href="tel:+40763564072" className="text-white hover:text-blue-300 transition-colors duration-300 font-semibold text-lg">
+                  +40 763 564 072
                 </a>
               </div>
               
-              <div className="flex items-center space-x-4 group">
-                <div className="w-10 h-10 bg-blue-500/20 rounded-xl flex items-center justify-center group-hover:bg-blue-500/30 transition-all duration-300">
-                  <Mail className="w-5 h-5 text-blue-400 flex-shrink-0" />
+              <div className="flex items-center space-x-3 group hover:translate-x-2 transition-all duration-300" style={{transitionDelay: '0.1s'}}>
+                <div className="w-12 h-12 bg-gradient-to-br from-orange-600/20 to-pink-600/20 backdrop-blur-sm border border-orange-400/30 rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 group-hover:bg-gradient-to-br group-hover:from-orange-600 group-hover:to-pink-600 transform-gpu" style={{transformStyle: 'preserve-3d'}}>
+                  <Mail className="w-6 h-6 text-orange-300 group-hover:text-white group-hover:animate-pulse transition-all duration-300" />
                 </div>
-                <a href="mailto:contact@negulescu.ro" className="text-slate-300 hover:text-white transition-all duration-300 font-medium">
+                <a href="mailto:contact@negulescu.ro" className="text-white hover:text-orange-300 transition-colors duration-300 font-semibold text-lg">
                   contact@negulescu.ro
                 </a>
               </div>
               
-              <div className="flex items-start space-x-4 group">
-                <div className="w-10 h-10 bg-blue-500/20 rounded-xl flex items-center justify-center group-hover:bg-blue-500/30 transition-all duration-300 mt-1">
-                  <MapPin className="w-5 h-5 text-blue-400 flex-shrink-0" />
+              <div className="flex items-start space-x-3 group hover:translate-x-2 transition-all duration-300" style={{transitionDelay: '0.3s'}}>
+                <div className="w-12 h-12 bg-gradient-to-br from-purple-600/20 to-indigo-600/20 backdrop-blur-sm border border-purple-400/30 rounded-xl flex items-center justify-center mt-1 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 group-hover:bg-gradient-to-br group-hover:from-purple-600 group-hover:to-indigo-600 transform-gpu" style={{transformStyle: 'preserve-3d'}}>
+                  <Clock className="w-6 h-6 text-purple-300 group-hover:text-white group-hover:animate-spin transition-all duration-300" />
                 </div>
-                <span className="text-slate-300 font-medium leading-relaxed">
-                  Strada Exemplu 123<br />
-                  București, România
-                </span>
-              </div>
-              
-              <div className="flex items-start space-x-4 group">
-                <div className="w-10 h-10 bg-blue-500/20 rounded-xl flex items-center justify-center group-hover:bg-blue-500/30 transition-all duration-300 mt-1">
-                  <Clock className="w-5 h-5 text-blue-400 flex-shrink-0" />
-                </div>
-                <div className="text-slate-300 font-medium leading-relaxed">
-                  <div>Luni - Vineri: 08:00 - 18:00</div>
-                  <div>Sâmbătă: 09:00 - 14:00</div>
-                  <div>Duminică: Închis</div>
+                <div className="text-white leading-relaxed group-hover:text-purple-300 transition-colors duration-300 font-semibold">
+                  <div className="hover:translate-x-1 transition-transform duration-300">Luni - Vineri: 08:00 - 18:00</div>
+                  <div className="hover:translate-x-1 transition-transform duration-300" style={{transitionDelay: '0.1s'}}>Sâmbătă: 09:00 - 14:00</div>
+                  <div className="hover:translate-x-1 transition-transform duration-300" style={{transitionDelay: '0.2s'}}>Duminică: Închis</div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Services */}
-          <div>
-            <h3 className="text-xl font-bold mb-8 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">Servicii</h3>
-            <ul className="space-y-4">
-              {footerLinks.servicii.map((link) => (
-                <li key={link.name}>
+          {/* Animated Services */}
+          <div className="group">
+            <h4 className="text-xl font-bold mb-6 text-white group-hover:text-blue-300 transition-colors duration-300 flex items-center gap-2">
+              <Star className="w-5 h-5" />
+              Servicii
+            </h4>
+            <ul className="space-y-3">
+              {footerLinks.servicii.map((link, index) => (
+                <li key={link.name} className="hover:translate-x-2 transition-transform duration-300" style={{transitionDelay: `${index * 0.1}s`}}>
                   <Link 
                     href={link.href} 
-                    className="text-slate-300 hover:text-white transition-all duration-300 font-medium hover:translate-x-1 inline-block"
+                    className="text-slate-300 hover:text-white transition-all duration-300 hover:font-semibold relative group/link flex items-center gap-2"
                   >
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-400 group-hover/link:scale-150 transition-transform duration-300"></span>
                     {link.name}
+                    <span className="absolute inset-x-0 -bottom-0.5 h-0.5 bg-gradient-to-r from-blue-400 to-orange-400 scale-x-0 group-hover/link:scale-x-100 transition-transform duration-300 origin-left"></span>
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Company */}
-          <div>
-            <h3 className="text-xl font-bold mb-8 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">Companie</h3>
-            <ul className="space-y-4">
-              {footerLinks.companie.map((link) => (
-                <li key={link.name}>
+          {/* Animated Company */}
+          <div className="group">
+            <h4 className="text-xl font-bold mb-6 text-white group-hover:text-orange-300 transition-colors duration-300 flex items-center gap-2">
+              <Award className="w-5 h-5" />
+              Companie
+            </h4>
+            <ul className="space-y-3">
+              {footerLinks.companie.map((link, index) => (
+                <li key={link.name} className="hover:translate-x-2 transition-transform duration-300" style={{transitionDelay: `${index * 0.1}s`}}>
                   <Link 
                     href={link.href} 
-                    className="text-slate-300 hover:text-white transition-all duration-300 font-medium hover:translate-x-1 inline-block"
+                    className="text-slate-300 hover:text-white transition-all duration-300 hover:font-semibold relative group/link flex items-center gap-2"
                   >
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-400 group-hover/link:scale-150 transition-transform duration-300"></span>
                     {link.name}
+                    <span className="absolute inset-x-0 -bottom-0.5 h-0.5 bg-gradient-to-r from-blue-400 to-orange-400 scale-x-0 group-hover/link:scale-x-100 transition-transform duration-300 origin-left"></span>
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Legal & Contact */}
-          <div>
-            <h3 className="text-xl font-bold mb-8 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">Legal</h3>
-            <ul className="space-y-4 mb-10">
-              {footerLinks.legal.map((link) => (
-                <li key={link.name}>
+          {/* Animated Legal & Contact */}
+          <div className="group">
+            <h4 className="text-xl font-bold mb-6 text-white group-hover:text-green-300 transition-colors duration-300 flex items-center gap-2">
+              <Shield className="w-5 h-5" />
+              Legal
+            </h4>
+            <ul className="space-y-3 mb-8">
+              {footerLinks.legal.map((link, index) => (
+                <li key={link.name} className="hover:translate-x-2 transition-transform duration-300" style={{transitionDelay: `${index * 0.1}s`}}>
                   <Link 
                     href={link.href} 
-                    className="text-slate-300 hover:text-white transition-all duration-300 font-medium hover:translate-x-1 inline-block"
+                    className="text-slate-300 hover:text-white transition-all duration-300 hover:font-semibold relative group/link flex items-center gap-2"
                   >
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-400 group-hover/link:scale-150 transition-transform duration-300"></span>
                     {link.name}
+                    <span className="absolute inset-x-0 -bottom-0.5 h-0.5 bg-gradient-to-r from-blue-400 to-orange-400 scale-x-0 group-hover/link:scale-x-100 transition-transform duration-300 origin-left"></span>
                   </Link>
                 </li>
               ))}
             </ul>
 
-            {/* WhatsApp CTA */}
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center space-x-3 bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white px-6 py-4 rounded-2xl transition-all duration-300 transform hover:scale-105 mb-8 font-semibold shadow-lg shadow-emerald-500/25"
-            >
-              <MessageCircle className="w-5 h-5" />
-              <span>Contactează pe WhatsApp</span>
-            </a>
+            {/* Animated WhatsApp CTA */}
+            <div className="mb-8">
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-3 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-6 py-3 rounded-xl transition-all duration-300 font-semibold hover:scale-105 hover:shadow-2xl hover:shadow-green-500/50 hover:-translate-y-1 group/whatsapp transform-gpu" style={{transformStyle: 'preserve-3d'}}
+              >
+                <MessageCircle className="w-6 h-6 group-hover/whatsapp:animate-pulse" />
+                <span>Contactează pe WhatsApp</span>
+                <Send className="w-4 h-4 group-hover/whatsapp:translate-x-1 transition-transform duration-300" />
+              </a>
+            </div>
 
-            {/* Social Links */}
+            {/* Animated Social Links */}
             <div>
-              <h4 className="text-lg font-bold mb-6 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">Urmărește-ne</h4>
+              <h4 className="text-xl font-bold mb-6 text-white hover:text-blue-300 transition-colors duration-300">Urmărește-ne</h4>
               <div className="flex space-x-4">
-                {socialLinks.map((social) => {
+                {socialLinks.map((social, index) => {
                   const Icon = social.icon
                   return (
                     <a
@@ -194,10 +206,10 @@ export default function Footer() {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`w-12 h-12 bg-slate-800/50 hover:bg-slate-700/50 rounded-2xl flex items-center justify-center text-slate-400 ${social.color} transition-all duration-300 hover:scale-110 hover:shadow-lg`}
+                      className="w-14 h-14 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 hover:bg-gradient-to-br hover:from-blue-600 hover:to-purple-600 rounded-xl flex items-center justify-center transition-all duration-500 hover:scale-110 hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-500/50 group hover:rotate-6 transform-gpu" style={{transformStyle: 'preserve-3d', transitionDelay: `${index * 0.1}s`}}
                       aria-label={social.name}
                     >
-                      <Icon className="w-6 h-6" />
+                      <Icon className="w-6 h-6 text-white group-hover:scale-110 group-hover:animate-bounce transition-all duration-300" />
                     </a>
                   )
                 })}
@@ -207,18 +219,23 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-slate-700/50 bg-slate-900/50 backdrop-blur-sm">
-        <div className="container mx-auto px-6 py-8 relative">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
-            <div className="text-slate-400 font-medium">
-              © {currentYear} Negulescu gh.PFA. Toate drepturile rezervate.
+      {/* Animated Copyright Section */}
+      <div className="border-t border-white/10 py-10 bg-gradient-to-br from-slate-950/50 to-blue-950/50 backdrop-blur-sm relative z-10">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div className="text-center md:text-left group">
+              <p className="text-white font-bold mb-1 group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-orange-400 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300 text-lg">
+                © {currentYear} Negulescu Gh.PFA
+              </p>
+              <p className="text-slate-400 text-sm group-hover:text-slate-200 transition-colors duration-300">
+                Toate drepturile rezervate.
+              </p>
             </div>
             
-            <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-8 text-sm text-slate-400 font-medium">
-              <span className="px-3 py-1 bg-slate-800/50 rounded-lg">CUI: RO12345678</span>
-              <span className="px-3 py-1 bg-slate-800/50 rounded-lg">J40/1234/2020</span>
-              <span className="px-3 py-1 bg-slate-800/50 rounded-lg">Capital social: 50.000 RON</span>
+            <div className="flex flex-wrap justify-center md:justify-end gap-4 text-sm text-slate-400">
+              <span className="hover:text-white hover:font-semibold transition-all duration-300 hover:scale-105 px-3 py-1 rounded-lg hover:bg-white/10">CUI: RO12345678</span>
+              <span className="hover:text-white hover:font-semibold transition-all duration-300 hover:scale-105 px-3 py-1 rounded-lg hover:bg-white/10" style={{transitionDelay: '0.1s'}}>J40/1234/2020</span>
+              <span className="hover:text-white hover:font-semibold transition-all duration-300 hover:scale-105 px-3 py-1 rounded-lg hover:bg-white/10" style={{transitionDelay: '0.2s'}}>Înregistrat în România</span>
             </div>
           </div>
         </div>

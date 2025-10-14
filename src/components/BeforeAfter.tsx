@@ -9,7 +9,7 @@ const beforeAfterData = [
   {
     id: 1,
     title: 'Renovare Completă Ferestre PVC',
-    location: 'București, Sector 1',
+    date: '2024',
     before: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     after: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     description: 'Înlocuirea ferestrelor vechi cu ferestre PVC premium cu triplu geam și izolație termică superioară.'
@@ -17,7 +17,7 @@ const beforeAfterData = [
   {
     id: 2,
     title: 'Uși de Intrare Securizate',
-    location: 'Cluj-Napoca',
+    date: '2024',
     before: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     after: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     description: 'Montaj ușă de intrare blindată cu sistem de încuiere multipunct și finisaj premium.'
@@ -25,7 +25,7 @@ const beforeAfterData = [
   {
     id: 3,
     title: 'Ferestre Aluminiu Modern',
-    location: 'Timișoara',
+    date: '2023',
     before: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     after: 'https://images.unsplash.com/photo-1560184897-ae75f418493e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     description: 'Transformare cu ferestre din aluminiu cu design contemporan și performanțe energetice excelente.'
@@ -80,7 +80,7 @@ export default function BeforeAfter() {
                     {currentData.title}
                   </h3>
                   <p className="text-gray-600 mb-2">
-                    📍 {currentData.location}
+                    📅 {currentData.date}
                   </p>
                   <p className="text-gray-700">
                     {currentData.description}
@@ -183,7 +183,7 @@ export default function BeforeAfter() {
             Vrei să vezi și casa ta transformată astfel?
           </p>
           <a
-            href="https://wa.me/40123456789?text=Vreau%20să%20văd%20mai%20multe%20exemple%20de%20transformări!"
+            href="https://wa.me/40763564072?text=Bună%20ziua!%20Vreau%20să%20aflu%20mai%20multe%20despre%20serviciile%20dumneavoastră."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-xl font-semibold transition-all transform hover:scale-105"

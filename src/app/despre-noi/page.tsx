@@ -1,21 +1,21 @@
-import { Metadata } from 'next';
+'use client'
+
+import dynamic from 'next/dynamic';
+import { useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Award, Users, Clock, Shield, Heart, Target, Eye, MessageCircle, Phone, CheckCircle, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { motion } from 'framer-motion';
+import HeaderPremium from '@/components/HeaderPremium';
+import FooterMinimal from '@/components/FooterMinimal';
 
-export const metadata: Metadata = {
-  title: 'Despre Noi - Negulescu gh.PFA Tâmplărie | 15+ Ani Experiență',
-  description: 'Aflați povestea Negulescu gh.PFA - 15+ ani de experiență în tâmplărie PVC și aluminiu. Echipă dedicată, tehnologie modernă, peste 500 de proiecte finalizate în București și Ilfov.',
-  keywords: 'despre Negulescu gh.PFA, experiență tâmplărie, echipă profesională, istorie companie, valori, misiune, viziune',
-  openGraph: {
-    title: 'Despre Noi - Negulescu gh.PFA Tâmplărie | 15+ Ani Experiență',
-    description: 'Povestea unei companii dedicate excelenței în tâmplărie PVC și aluminiu.',
-    images: ['/images/luxury-service-bg.svg'],
-  },
-};
+// Lazy load CircularOrbit3D
+const CircularOrbit3D = dynamic(() => import('@/components/CircularOrbit3D'), {
+  ssr: false
+});
 
 const milestones = [
   {
@@ -139,82 +139,85 @@ const stats = [
 ];
 
 export default function AboutPage() {
+  useEffect(() => {
+    document.title = 'Despre Noi - Negulescu Gh.PFA Tâmplărie | 15+ Ani Experiență';
+  }, []);
+
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gradient-to-b from-argus-dark via-argus-anthracite to-black">
+      <HeaderPremium />
+      
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900 text-white py-24 overflow-hidden">
-        {/* Luxury Background */}
-        <div className="absolute inset-0 opacity-30">
-          <div className="w-full h-full bg-[url('/images/luxury-about-bg.svg')] bg-cover bg-center animate-float-slow" />
-        </div>
+      <section className="relative bg-gradient-to-br from-argus-dark via-argus-anthracite to-black text-white py-32 overflow-hidden">
+        <CircularOrbit3D size={600} color="#5AC8FA" thickness={3} speed={25} />
         
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-indigo-900/70 to-purple-900/80" />
-        
-        {/* Animated Particles */}
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-3 h-3 bg-yellow-400/60 rounded-full animate-float" />
-          <div className="absolute top-40 right-20 w-2 h-2 bg-blue-300/50 rounded-full animate-float-delayed" />
-          <div className="absolute bottom-32 left-1/4 w-4 h-4 bg-indigo-300/40 rounded-full animate-float-slow" />
-          <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-purple-300/50 rounded-full animate-float" />
+        {/* Ambient orbs */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <motion.div
+            className="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-argus-ice-blue/10 rounded-full blur-[100px]"
+            animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+            transition={{ duration: 8, repeat: Infinity }}
+          />
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <Badge className="mb-4 bg-white/20 text-white border-white/30">
-              15+ Ani de Experiență
+            <Badge className="mb-6 glass-dark border-argus-ice-blue/20">
+              <span className="text-argus-ice-blue">15+ Ani de Experiență</span>
             </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-5xl md:text-7xl font-display font-bold mb-6 leading-tight">
               Povestea
-              <span className="text-yellow-400"> Negulescu gh.PFA</span>
+              <span className="bg-gradient-to-r from-argus-ice-blue to-blue-400 bg-clip-text text-transparent"> Negulescu Gh.PFA</span>
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-blue-100">
+            <p className="text-xl md:text-2xl mb-12 text-argus-gray-light/80 font-light">
               De peste 15 ani, transformăm casele și birourile clienților noștri cu soluții de tâmplărie de cea mai înaltă calitate
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button size="lg" className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 hover:from-yellow-500 hover:via-yellow-600 hover:to-yellow-700 text-black font-bold text-lg px-8 py-4 rounded-2xl shadow-2xl hover:shadow-yellow-500/30 hover:scale-105 hover:-translate-y-1 transition-all duration-500 animate-shimmer" asChild>
-                <Link href="#echipa">
-                  <Users className="mr-3 h-6 w-6" />
-                  Cunoaște Echipa
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" className="border-2 border-white/60 text-white hover:bg-white hover:text-blue-900 font-bold text-lg px-8 py-4 rounded-2xl backdrop-blur-sm bg-white/10 hover:scale-105 hover:-translate-y-1 transition-all duration-500 shadow-xl hover:shadow-2xl" asChild>
-                <Link href="/contact">
-                  <MessageCircle className="mr-3 h-6 w-6" />
-                  Contactează-ne
-                </Link>
-              </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button size="lg" className="bg-argus-ice-blue hover:bg-argus-ice-blue/90 text-argus-dark font-semibold shadow-lg shadow-argus-ice-blue/30" asChild>
+                  <Link href="#echipa">
+                    <Users className="mr-2 h-5 w-5" />
+                    Cunoaște Echipa
+                  </Link>
+                </Button>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button size="lg" variant="outline" className="glass-dark-hover border-argus-ice-blue/30 text-white" asChild>
+                  <Link href="/contact">
+                    <MessageCircle className="mr-2 h-5 w-5" />
+                    Contactează-ne
+                  </Link>
+                </Button>
+              </motion.div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="w-full h-full bg-[url('/images/luxury-service-bg.svg')] bg-cover bg-center" />
-        </div>
-        
-        <div className="container mx-auto px-4 relative z-10">
+      <section className="py-20 bg-argus-dark relative overflow-hidden">
+        <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
             {stats.map((stat, index) => {
               const Icon = stat.icon;
               return (
-                <div key={index} className="text-center group hover:scale-110 transition-all duration-700">
-                  <div className="relative mb-6">
-                    <div className="w-20 h-20 bg-gradient-to-br from-blue-500 via-indigo-600 to-purple-600 text-white rounded-3xl flex items-center justify-center mx-auto shadow-xl group-hover:shadow-2xl group-hover:shadow-blue-500/30 transition-all duration-700 group-hover:rotate-6 animate-glow">
-                      <Icon className="h-10 w-10 group-hover:scale-110 transition-transform duration-500" />
-                    </div>
-                    {/* Glow effect */}
-                    <div className="absolute inset-0 w-20 h-20 bg-gradient-to-br from-blue-400 to-purple-600 rounded-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-700 blur-xl mx-auto" />
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="text-center"
+                >
+                  <div className="w-16 h-16 bg-argus-ice-blue text-argus-dark rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-argus-ice-blue/30">
+                    <Icon className="h-8 w-8" />
                   </div>
-                  <div className="text-4xl md:text-5xl font-black bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent mb-3 group-hover:scale-105 transition-transform duration-500">
+                  <div className="text-4xl md:text-5xl font-display font-bold text-argus-ice-blue mb-2">
                     {stat.number}
                   </div>
-                  <div className="text-slate-700 font-semibold text-lg group-hover:text-blue-600 transition-colors duration-500">
+                  <div className="text-white font-medium">
                     {stat.label}
                   </div>
-                </div>
+                </motion.div>
               );
             })}
           </div>
@@ -222,14 +225,14 @@ export default function AboutPage() {
       </section>
 
       {/* Story Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gradient-to-b from-black via-argus-anthracite/50 to-argus-dark">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Povestea Noastră</h2>
-              <div className="space-y-6 text-lg text-gray-600">
+              <h2 className="text-3xl md:text-4xl font-display font-bold mb-6 text-white">Povestea Noastră</h2>
+              <div className="space-y-6 text-lg text-argus-gray-light/80 font-light">
                 <p>
-                  Totul a început în 2009, când Ion Negulescu gh.PFA, cu o experiență de peste 20 de ani în construcții, 
+                  Totul a început în 2009, când Ion Negulescu Gh.PFA, cu o experiență de peste 20 de ani în construcții, 
                   a decis să își urmeze pasiunea pentru tâmplărie și să înființeze o companie dedicată excelenței.
                 </p>
                 <p>
@@ -237,12 +240,12 @@ export default function AboutPage() {
                   investind în echipamente moderne, tehnologii avansate și, cel mai important, în oameni dedicați.
                 </p>
                 <p>
-                  Astăzi, Negulescu gh.PFA este recunoscută ca una dintre companiile de referință în domeniul tâmplăriei 
+                  Astăzi, Negulescu Gh.PFA este recunoscută ca una dintre companiile de referință în domeniul tâmplăriei 
                   PVC și aluminiu din București și Ilfov, cu peste 500 de proiecte finalizate cu succes.
                 </p>
               </div>
               <div className="mt-8">
-                <Button size="lg" asChild>
+                <Button size="lg" className="bg-argus-ice-blue hover:bg-argus-ice-blue/90 text-argus-dark font-semibold shadow-lg shadow-argus-ice-blue/30" asChild>
                   <Link href="/portofoliu">
                     Vezi Proiectele Noastre
                   </Link>
@@ -253,7 +256,7 @@ export default function AboutPage() {
               <div className="w-full h-64 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl shadow-lg flex items-center justify-center">
                 <div className="text-white text-center">
                   <div className="text-6xl mb-2">🏗️</div>
-                  <p className="text-lg font-semibold">Povestea Negulescu gh.PFA</p>
+                  <p className="text-lg font-semibold">Povestea Negulescu Gh.PFA</p>
                 </div>
               </div>
             </div>
@@ -262,37 +265,37 @@ export default function AboutPage() {
       </section>
 
       {/* Timeline */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-argus-dark">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Parcursul Nostru</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 text-white">Parcursul Nostru</h2>
+            <p className="text-xl text-argus-gray-light/80 font-light max-w-3xl mx-auto">
               De la o echipă mică la o companie de referință - iată momentele cheie din evoluția noastră.
             </p>
           </div>
 
           <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-blue-200" />
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-argus-ice-blue/20" />
             <div className="space-y-12">
               {milestones.map((milestone, index) => (
                 <div key={index} className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
                   <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8'}`}>
-                    <Card className="hover:shadow-lg transition-shadow">
+                    <Card className="glass-dark border-2 border-argus-ice-blue/10 hover:shadow-xl transition-shadow">
                       <CardHeader>
-                        <CardTitle className="text-2xl font-bold text-blue-600">
+                        <CardTitle className="text-2xl font-display font-bold text-argus-ice-blue">
                           {milestone.year}
                         </CardTitle>
-                        <CardDescription className="text-lg font-semibold text-gray-800">
+                        <CardDescription className="text-lg font-semibold text-white">
                           {milestone.title}
                         </CardDescription>
                       </CardHeader>
                       <CardContent>
-                        <p className="text-gray-600">{milestone.description}</p>
+                        <p className="text-argus-gray-light/80 font-light">{milestone.description}</p>
                       </CardContent>
                     </Card>
                   </div>
                   <div className="relative z-10">
-                    <div className="w-4 h-4 bg-blue-600 rounded-full border-4 border-white shadow-lg" />
+                    <div className="w-4 h-4 bg-argus-ice-blue rounded-full border-4 border-argus-anthracite shadow-lg shadow-argus-ice-blue/50" />
                   </div>
                   <div className="w-1/2" />
                 </div>
@@ -303,11 +306,11 @@ export default function AboutPage() {
       </section>
 
       {/* Values Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gradient-to-b from-black via-argus-anthracite/50 to-argus-dark">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Valorile Noastre</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 text-white">Valorile Noastre</h2>
+            <p className="text-xl text-argus-gray-light/80 font-light max-w-3xl mx-auto">
               Principiile care ne ghidează în fiecare proiect și în relația cu clienții noștri.
             </p>
           </div>
@@ -316,15 +319,15 @@ export default function AboutPage() {
             {values.map((value, index) => {
               const Icon = value.icon;
               return (
-                <Card key={index} className="text-center hover:shadow-lg transition-shadow">
+                <Card key={index} className="text-center glass-dark border-2 border-argus-ice-blue/10 hover:shadow-xl transition-shadow">
                   <CardHeader>
-                    <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div className="w-16 h-16 bg-argus-ice-blue text-argus-dark rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-argus-ice-blue/30">
                       <Icon className="h-8 w-8" />
                     </div>
-                    <CardTitle className="text-xl">{value.title}</CardTitle>
+                    <CardTitle className="text-xl font-display text-white">{value.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-600">{value.description}</p>
+                    <p className="text-argus-gray-light/80 font-light">{value.description}</p>
                   </CardContent>
                 </Card>
               );
@@ -334,18 +337,18 @@ export default function AboutPage() {
       </section>
 
       {/* Team Section */}
-      <section id="echipa" className="py-20 bg-white">
+      <section id="echipa" className="py-20 bg-argus-dark">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Echipa Noastră</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 text-white">Echipa Noastră</h2>
+            <p className="text-xl text-argus-gray-light/80 font-light max-w-3xl mx-auto">
               Oamenii care fac diferența - specialiști dedicați cu experiență vastă în domeniu.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {team.map((member, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow">
+              <Card key={index} className="text-center glass-dark border-2 border-argus-ice-blue/10 hover:shadow-xl transition-shadow">
                 <CardHeader>
                   <div className="relative w-32 h-32 mx-auto mb-4">
                     <Image
@@ -355,8 +358,8 @@ export default function AboutPage() {
                       className="rounded-full object-cover"
                     />
                   </div>
-                  <CardTitle className="text-xl">{member.name}</CardTitle>
-                  <CardDescription className="text-blue-600 font-semibold">
+                  <CardTitle className="text-xl font-display text-white">{member.name}</CardTitle>
+                  <CardDescription className="text-argus-ice-blue font-semibold">
                     {member.role}
                   </CardDescription>
                   <Badge variant="secondary" className="mt-2">
@@ -364,11 +367,11 @@ export default function AboutPage() {
                   </Badge>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600 mb-4">{member.description}</p>
+                  <p className="text-argus-gray-light/80 font-light mb-4">{member.description}</p>
                   <div className="space-y-1">
                     {member.specialties.map((specialty, idx) => (
                       <div key={idx} className="flex items-center justify-center gap-2 text-sm">
-                        <CheckCircle className="h-4 w-4 text-green-500" />
+                        <CheckCircle className="h-4 w-4 text-argus-ice-blue" />
                         {specialty}
                       </div>
                     ))}
@@ -381,18 +384,18 @@ export default function AboutPage() {
       </section>
 
       {/* Certifications */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gradient-to-b from-black via-argus-anthracite/50 to-argus-dark">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Certificări și Parteneriate</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 text-white">Certificări și Parteneriate</h2>
+            <p className="text-xl text-argus-gray-light/80 font-light max-w-3xl mx-auto">
               Recunoașterea calității prin certificări internaționale și parteneriate cu producători de renume.
             </p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {certifications.map((cert, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow">
+              <Card key={index} className="text-center glass-dark border-2 border-argus-ice-blue/10 hover:shadow-xl transition-shadow">
                 <CardHeader>
                   <div className="relative w-20 h-20 mx-auto mb-4">
                     <Image
@@ -402,10 +405,10 @@ export default function AboutPage() {
                       className="object-contain"
                     />
                   </div>
-                  <CardTitle className="text-lg">{cert.name}</CardTitle>
+                  <CardTitle className="text-lg font-display text-white">{cert.name}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-gray-600">{cert.description}</p>
+                  <p className="text-sm text-argus-gray-light/80 font-light">{cert.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -414,14 +417,14 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-20 bg-blue-900 text-white">
+      <section className="py-20 bg-gradient-to-br from-argus-dark via-argus-anthracite to-black text-white relative overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12">
-            <Card className="bg-white/10 border-white/20 text-white">
+            <Card className="glass-dark border-2 border-argus-ice-blue/20 text-white">
               <CardHeader>
                 <div className="flex items-center gap-4 mb-4">
-                  <Target className="h-8 w-8 text-yellow-400" />
-                  <CardTitle className="text-2xl">Misiunea Noastră</CardTitle>
+                  <Target className="h-8 w-8 text-argus-ice-blue" />
+                  <CardTitle className="text-2xl font-display">Misiunea Noastră</CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
@@ -432,11 +435,11 @@ export default function AboutPage() {
               </CardContent>
             </Card>
 
-            <Card className="bg-white/10 border-white/20 text-white">
+            <Card className="glass-dark border-2 border-argus-ice-blue/20 text-white">
               <CardHeader>
                 <div className="flex items-center gap-4 mb-4">
-                  <Eye className="h-8 w-8 text-yellow-400" />
-                  <CardTitle className="text-2xl">Viziunea Noastră</CardTitle>
+                  <Eye className="h-8 w-8 text-argus-ice-blue" />
+                  <CardTitle className="text-2xl font-display">Viziunea Noastră</CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
@@ -451,31 +454,37 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-argus-dark">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl font-display font-bold mb-6 text-white">
             Să Colaborăm pentru Proiectul Dumneavoastră
           </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto text-gray-600">
+          <p className="text-xl mb-8 max-w-2xl mx-auto text-argus-gray-light/80 font-light">
             Cu experiența și dedicarea noastră, transformăm visurile în realitate. 
             Contactați-ne pentru o consultanță gratuită.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-blue-600 hover:bg-blue-700" asChild>
-              <Link href="/contact">
-                <MessageCircle className="mr-2 h-5 w-5" />
-                Solicită Consultanță
-              </Link>
-            </Button>
-            <Button size="lg" variant="outline" asChild>
-              <Link href="tel:+40721234567">
-                <Phone className="mr-2 h-5 w-5" />
-                0721 234 567
-              </Link>
-            </Button>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button size="lg" className="bg-argus-ice-blue hover:bg-argus-ice-blue/90 text-argus-dark shadow-lg shadow-argus-ice-blue/30" asChild>
+                <Link href="/contact">
+                  <MessageCircle className="mr-2 h-5 w-5" />
+                  Solicită Consultanță
+                </Link>
+              </Button>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button size="lg" variant="outline" className="glass-dark-hover border-argus-ice-blue/30 text-white" asChild>
+                <Link href="tel:+40763564072">
+                  <Phone className="mr-2 h-5 w-5" />
+                  +40 763 564 072
+                </Link>
+              </Button>
+            </motion.div>
           </div>
         </div>
       </section>
+      
+      <FooterMinimal />
     </div>
   );
 }

@@ -1,11 +1,20 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  // Mode développement sans export pour performance
+  // output: 'export',
   trailingSlash: true,
   images: {
-    unoptimized: true
+    unoptimized: true,
+    formats: ['image/webp'],
+    deviceSizes: [640, 750, 828, 1080, 1200],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
-  distDir: 'build'
+  swcMinify: true,
+  reactStrictMode: true,
+  // Optimisation pour développement
+  experimental: {
+    optimizeCss: true,
+  },
 };
 
 module.exports = nextConfig;
