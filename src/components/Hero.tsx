@@ -1,13 +1,10 @@
 'use client'
 
-import { ArrowRight, Star, CheckCircle, Phone, MessageCircle, Sparkles, Shield, Award } from 'lucide-react'
+import { Phone, CheckCircle, Sparkles, Award, Shield, MessageCircle, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
-
-const whatsappNumber = '+40763564072'
-const whatsappMessage = 'Salut! Sunt interesat de serviciile de tâmplărie. Aș dori să aflu mai multe detalii.'
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false)
@@ -26,8 +23,6 @@ export default function Hero() {
       window.removeEventListener('scroll', handleScroll)
     }
   }, [])
-
-  const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/[^\d]/g, '')}?text=${encodeURIComponent(whatsappMessage)}`
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
@@ -119,7 +114,7 @@ export default function Hero() {
               className="group border-2 border-slate-800 bg-white/90 backdrop-blur-md text-slate-800 hover:bg-slate-800 hover:text-white hover:border-slate-900 px-10 py-6 rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:-translate-y-1 hover:shadow-xl"
               asChild
             >
-              <Link href={`https://wa.me/${whatsappNumber.replace('+', '')}?text=${encodeURIComponent(whatsappMessage)}`} target="_blank">
+              <Link href="https://wa.me/40763564072?text=Salut!%20Sunt%20interesat%20de%20serviciile%20de%20t%C3%A2mpl%C4%83rie.%20A%C8%99%20dori%20s%C4%83%20aflu%20mai%20multe%20detalii." target="_blank">
                 <Phone className="mr-3 h-5 w-5 group-hover:animate-pulse" />
                 Contactează-ne Direct
               </Link>

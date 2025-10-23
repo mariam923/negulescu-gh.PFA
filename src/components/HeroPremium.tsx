@@ -7,7 +7,7 @@ import { motion } from 'framer-motion'
 import FloatingElements from './FloatingElements'
 
 export default function HeroPremium() {
-  const [isVisible, setIsVisible] = useState(false)
+  const [, setIsVisible] = useState(false)
 
   useEffect(() => {
     setIsVisible(true)
@@ -73,7 +73,7 @@ export default function HeroPremium() {
           >
             Fenêtres et portes en verre de haute performance.
             <br />
-            Design élégant, efficacité énergétique et artisanat d'exception.
+            Design élégant, efficacité énergétique et artisanat d&apos;exception.
           </motion.p>
 
           {/* CTA Buttons */}

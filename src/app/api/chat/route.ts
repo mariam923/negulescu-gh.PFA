@@ -73,7 +73,7 @@ function findBestMatch(userMessage: string): string {
   const message = userMessage.toLowerCase().trim();
   
   // Căutare directă în cuvinte cheie
-  for (const [key, data] of Object.entries(chatDatabase)) {
+  for (const [, data] of Object.entries(chatDatabase)) {
     for (const keyword of data.keywords) {
       if (message.includes(keyword)) {
         return data.response;

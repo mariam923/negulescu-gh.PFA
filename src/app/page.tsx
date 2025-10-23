@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import HeaderPremium from '@/components/HeaderPremium'
 import FooterMinimal from '@/components/FooterMinimal'
 import VideoSection from '@/components/VideoSection'
-import { Home, DoorOpen, Shield, Award, Clock, Users, Sparkles, Zap, Heart } from 'lucide-react'
+import { Home, DoorOpen, Shield, Sparkles, Zap, Heart } from 'lucide-react'
 
 // Lazy load composants lourds pour accélérer le chargement initial
 const Hero3D = dynamic(() => import('@/components/Hero3D'), {
@@ -75,32 +75,32 @@ const services = [
   }
 ]
 
-const steps = [
-  {
-    number: 1,
-    title: 'Consultanță și Măsurători',
-    description: 'Venim la tine acasă pentru consultanță gratuită și măsurători precise. Analizăm nevoile tale și îți oferim cele mai bune soluții.',
-    icon: Users
-  },
-  {
-    number: 2,
-    title: 'Ofertă Personalizată',
-    description: 'Îți pregătim o soluție detaliată și personalizată, cu toate specificațiile tehnice și beneficiile clare.',
-    icon: Award
-  },
-  {
-    number: 3,
-    title: 'Producție și Pregătire',
-    description: 'Produsele tale sunt fabricate cu atenție la detalii, folosind doar materiale premium și tehnologii moderne.',
-    icon: Shield
-  },
-  {
-    number: 4,
-    title: 'Montaj Profesional',
-    description: 'Echipa noastră de specialiști realizează montajul cu precizie și atenție la detalii. Curățenie și ordine garantate.',
-    icon: Clock
-  }
-]
+// const steps = [
+//   {
+//     number: 1,
+//     title: 'Consultanță și Măsurători',
+//     description: 'Venim la tine acasă pentru consultanță gratuită și măsurători precise. Analizăm nevoile tale și îți oferim cele mai bune soluții.',
+//     icon: Users
+//   },
+//   {
+//     number: 2,
+//     title: 'Ofertă Personalizată',
+//     description: 'Îți pregătim o soluție detaliată și personalizată, cu toate specificațiile tehnice și beneficiile clare.',
+//     icon: Award
+//   },
+//   {
+//     number: 3,
+//     title: 'Producție și Pregătire',
+//     description: 'Produsele tale sunt fabricate cu atenție la detalii, folosind doar materiale premium și tehnologii moderne.',
+//     icon: Shield
+//   },
+//   {
+//     number: 4,
+//     title: 'Montaj Profesional',
+//     description: 'Echipa noastră de specialiști realizează montajul cu precizie și atenție la detalii. Curățenie și ordine garantate.',
+//     icon: Clock
+//   }
+// ]
 
 export default function HomePage() {
   return (

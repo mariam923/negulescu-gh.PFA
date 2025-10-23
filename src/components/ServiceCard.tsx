@@ -1,6 +1,6 @@
 'use client'
 
-import { LucideIcon, ArrowRight, Check, Sparkles } from 'lucide-react'
+import { LucideIcon, ArrowRight, Check } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 interface ServiceCardProps {

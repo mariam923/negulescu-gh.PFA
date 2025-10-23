@@ -1,7 +1,6 @@
 'use client'
 
-import { CheckCircle, MessageCircle, Calendar, Wrench, Star, Sparkles, Award, Shield, Phone } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { MessageCircle, Calendar, Wrench, Star, Sparkles, Award, Shield, Phone } from 'lucide-react'
 
 const steps = [
   {

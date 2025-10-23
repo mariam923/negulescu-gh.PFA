@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { ChevronLeft, ChevronRight, Play, Eye, Award, Star } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Play, Award, Star } from 'lucide-react'
 import Image from 'next/image'
 
 const galleryItems = [

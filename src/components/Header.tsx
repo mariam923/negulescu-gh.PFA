@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { Menu, X, Phone, MessageCircle, Sparkles } from 'lucide-react'
+import { Menu, X, Phone, MessageCircle } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const navigation = [

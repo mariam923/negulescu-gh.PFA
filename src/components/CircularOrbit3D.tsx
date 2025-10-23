@@ -21,7 +21,7 @@ export default function CircularOrbit3D({
   
   // Transform scroll progress to rotation
   const rotateY = useTransform(scrollYProgress, [0, 1], [0, 360])
-  const rotateX = useTransform(scrollYProgress, [0, 1], [0, 180])
+  // const rotateX = useTransform(scrollYProgress, [0, 1], [0, 180])
   
   return (
     <div 

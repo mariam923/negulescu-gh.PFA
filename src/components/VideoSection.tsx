@@ -1,14 +1,13 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
 import { Play, Pause } from 'lucide-react'
 
 export default function VideoSection() {
   const ref = useRef(null)
   const videoRef = useRef<HTMLVideoElement>(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  // const isInView = useInView(ref, { once: true, margin: "-100px" })
   const [isPlaying, setIsPlaying] = useState(false)
 
   const togglePlay = () => {

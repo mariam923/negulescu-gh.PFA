@@ -37,7 +37,7 @@ export default function HeroMinimal() {
           >
             Fenêtres et portes
             <br />
-            <span className="text-minimal-medium-gray">d'exception</span>
+            <span className="text-minimal-medium-gray">d&apos;exception</span>
           </h1>
 
           {/* Subtitle */}
@@ -46,7 +46,7 @@ export default function HeroMinimal() {
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
           >
-            Design intemporel, artisanat d'exception et performance énergétique.
+            Design intemporel, artisanat d&apos;exception et performance énergétique.
             <br />
             Pour transformer votre espace de vie.
           </p>

@@ -11,10 +11,6 @@ const nextConfig = {
   },
   swcMinify: true,
   reactStrictMode: true,
-  // Optimisation pour développement
-  experimental: {
-    optimizeCss: true,
-  },
 };
 
 module.exports = nextConfig;

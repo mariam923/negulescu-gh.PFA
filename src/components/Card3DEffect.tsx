@@ -11,7 +11,7 @@ interface Card3DEffectProps {
 
 export default function Card3DEffect({ children, className = '', intensity = 20 }: Card3DEffectProps) {
   const ref = useRef<HTMLDivElement>(null)
-  const [isHovering, setIsHovering] = useState(false)
+  const [, setIsHovering] = useState(false)
 
   const x = useMotionValue(0)
   const y = useMotionValue(0)

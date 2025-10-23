@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
 import { Phone, Mail, Clock, MessageCircle, Facebook, Instagram, Linkedin, Send, Award, Shield, Star } from 'lucide-react'
 
 const footerLinks = {
